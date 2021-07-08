@@ -207,6 +207,19 @@ int delete(FILE *db_file, char *name) {
       */
 
       /* TBD */
+      if(strcmp(base->name,name)==0){
+      	base=p->next;
+      }
+      else{
+      	p=p->next;
+      	prev->next=p;
+      }
+      delete=1;
+      break;
+    }
+    else {
+    prev=p;
+    p=p->next;
     }
   }
   write_all_entries(base);
